@@ -1,0 +1,35 @@
+import random
+
+random = random.randint(1,50)
+switch = True
+count = 1
+n=int(input(f'Привет! Давай поиграем в игру "Угадай число". Назови любое число от 1 до 50. У тебя на это есть 6 попыток. Ваше число :'))
+
+while switch:
+
+    if n==random:
+        n=input(f'Поздравляю! Вы угадали с {count} попытки. Хотите попробовать еще?(Y/N)')
+        if n=='Y':
+            n=int(input('Назови любое число от 1 до 50. У тебя на это есть 6 попыток. Ваше число :'))
+            count=1
+            switch=True
+        else:
+            break
+
+    if n!=random:
+        if n>random:
+            n=int(input(f'Неверно,ваше число больше загаданного. Попробуйте еще раз. Эта ваша {count} попытка. Ваше число : '))
+        elif n<random:
+            n=int(input(f'Неверно,ваше число меньше загаданного. Попробуйте еще раз. Эта ваша {count} попытка. Ваше число :'))
+
+    if count==6:
+        n=input(f'Ваши попытки закончились. Хотите попробовать еще?(Y/N)')
+        if n=='Y':
+            switch=True
+            count=1
+        if n=='N':
+            print('До скорых встреч.')
+            switch=False
+
+
+    count+=1
