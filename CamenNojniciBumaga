@@ -1,0 +1,29 @@
+import random
+
+round = 1
+n=input('Привет! Давай сыграем в Камень-Ножницы-Бумага.К-камень,Б-бумага,Н-ножницы.Что ты выбираешь?:').upper()
+while True:
+    computer = random.choice('КНБ')
+    print(computer)
+    if computer == n:
+        n = input(f'Ничья! {computer} против {n}.{round} раунд окончен. Ваш ход :')
+        round+=1
+        continue
+
+    if (n=='К' and computer=='Н') or (n=='Б' and computer=='К') or (n=='Н' and computer=='Б'):
+        answer=input(f'Поздравляем!{round} раунд окончен. Вы выиграли. {n} против {computer}. Хотите сыграть еще?(Y/N)').upper()
+        if answer == 'Y':
+            n = input('Ваш ход: ')
+            round += 1
+            continue
+        else:
+            break
+
+    if (n =='Н' and computer=='К') or (n=='К' and computer=='Б') or (n=='Б' and computer=='Н'):
+        answer=input(f'Вы проиграли {n} против {computer}.{round} раунд окончен. Продолжаем?(Y/N)').upper()
+        if answer=='Y':
+            n=input('Ваш ход: ')
+            round+=1
+            continue
+        else:
+            break
