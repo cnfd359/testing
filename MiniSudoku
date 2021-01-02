@@ -1,0 +1,34 @@
+import random
+
+number_of_sticks = int(input('Введите кол-во палочек'))
+player1 = input('Введите свое имя')
+player2 = random.randint(1,3)
+switch = 1
+
+while number_of_sticks>0:
+    if switch == 1:
+        taken = int(input('Возьмите от 1 до 3 палочек.'))
+        number_of_sticks -= taken
+        print(f'Вы взяли {taken} палок. Палочек осталось {number_of_sticks}')
+
+    if switch == 2:
+        player2 = random.randint(1, 3)
+        number_of_sticks -= player2
+        print(f'Компьютер взял {player2} палочек. {number_of_sticks}  палочек осталось')
+
+
+    if taken < 1 or taken > 3:
+        print(f'Можно взять ОТ 1 ДО 3 ПАЛОЧЕК')
+        continue
+
+
+    if number_of_sticks <=0:
+        if switch == 1:
+            print('Победил компьютер')
+        else:
+            print('Вы победили!')
+
+    switch = 1 if switch==2 else 2
+
+
+
